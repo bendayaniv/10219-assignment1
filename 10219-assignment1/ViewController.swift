@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     
     var firstTurn = true
     
+    var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
@@ -44,11 +46,31 @@ class ViewController: UIViewController {
         label1.text = "Player I"
         label2.text = "Player II"
         
+        button.setTitle("Start Fight", for: .normal)
+        
         pokemon1Name.text = ""
         pokemon2Name.text = ""
         winnerAnnouncer.text = ""
         
         changeScores()
+        
+        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateUI() {
+        
+    }
+    
+    @objc func runningTimer() {
+        if gameManager.checkingGameOver() {
+            timer?.invalidate()
+            timer = nil
+            checkingWinner()
+        }
+        else {
+            next()
+        }
+//        next()
     }
     
     func changeScores() -> Void {
@@ -57,13 +79,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {
-        next()
+        self.button.isHidden = true
+        if self.firstTurn {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
+        }
     }
     
     //todo - moving this to GameManager
     func next() {
         if !self.firstTurn {
-            let result = self.pokemons[self.pokemons.count - 2].comapre(pokemon: self.pokemons[self.pokemons.count - 1])
+            let pokemonsCount = self.pokemons.count
+            let result = self.pokemons[pokemonsCount - 2].comapre(pokemon: self.pokemons[pokemonsCount - 1])
             if result == 1 {
                 gameManager.player1.addPokemons(pokemons: pokemons)
                 pokemons.removeAll()
@@ -74,35 +101,48 @@ class ViewController: UIViewController {
                 pokemons.removeAll()
                 changeScores()
             }
-                    
-            if gameManager.checkingGameOver() {
-                self.button.isHidden = true
-                if gameManager.player1.pokemons.count == 0 {
-                    self.image2.isHidden = true
-                    winnerAnnouncer.text = "\(self.gameManager.player1.name) is the winner"
-                }
-                else {
-                    self.image1.isHidden = true
-                    winnerAnnouncer.text = "\(self.gameManager.player1.name) is the winner"
-                }
-            }
         }
         else {
             self.firstTurn = false
         }
         
-        image1.image = UIImage(named: gameManager.player1.getPokemonName())
-        image2.image = UIImage(named: gameManager.player2.getPokemonName())
-        pokemon1Name.text = gameManager.player1.getPokemonName()
-        pokemon2Name.text = gameManager.player2.getPokemonName()
-                
         let player1Pokemon = gameManager.player1.getPokemon()
         let player2Pokemon = gameManager.player2.getPokemon()
+        
+        image1.image = UIImage(named: player1Pokemon.imageName)
+        image2.image = UIImage(named: player2Pokemon.imageName)
+        pokemon1Name.text = player1Pokemon.imageName
+        pokemon2Name.text = player2Pokemon.imageName
         
         pokemons.append(player1Pokemon)
         pokemons.append(player2Pokemon)
         
         
+    }
+    
+    func checkingWinner() {
+        self.button.isHidden = true
+        hidingLabels()
+        if gameManager.player1.pokemons.count == 0 {
+            self.image1.isHidden = true
+            gameManager.player2.addPokemons(pokemons: pokemons)
+            winnerAnnouncer.text = "\(self.gameManager.player2.name) is the winner"
+        }
+        else {
+            self.image2.isHidden = true
+            gameManager.player1.addPokemons(pokemons: pokemons)
+            winnerAnnouncer.text = "\(self.gameManager.player1.name) is the winner"
+        }
+        changeScores()
+    }
+    
+    func hidingLabels() {
+        label1.isHidden = true
+        label2.isHidden = true
+        score_player1.isHidden = true
+        score_player2.isHidden = true
+        pokemon1Name.isHidden = true
+        pokemon2Name.isHidden = true
     }
     
 }

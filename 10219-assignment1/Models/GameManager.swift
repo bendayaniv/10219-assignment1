@@ -12,6 +12,8 @@ class GameManager {
     var pokemons: [Pokemon]
     var player1: Player
     var player2: Player
+    var firstTurn: Bool
+    var waitingPokemons = [Pokemon]()
     
     init() {
         
@@ -62,11 +64,17 @@ class GameManager {
             
         ]
         self.pokemons.shuffle()
-        let halfPokemons = self.pokemons.count / 2
+        let quarterPokemons = self.pokemons.count / 4
         
         
-        self.player1 = Player(name: "Player 1", pokemons: Array(self.pokemons[0..<halfPokemons]))
-        self.player2 = Player(name: "Player 2", pokemons: Array(self.pokemons[halfPokemons..<self.pokemons.count]))
+        self.player1 = Player(name: "Player 1", pokemons: Array(self.pokemons[0..<quarterPokemons]))
+        self.player2 = Player(name: "Player 2", pokemons: Array(self.pokemons[quarterPokemons..<self.pokemons.count / 2]))
+        
+        self.firstTurn = true
+    }
+    
+    func next() {
+        
     }
     
     
