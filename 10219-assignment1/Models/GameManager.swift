@@ -64,11 +64,11 @@ class GameManager {
             
         ]
         self.pokemons.shuffle()
-        let quarterPokemons = self.pokemons.count / 4
+        let quarterPokemons = self.pokemons.count / 8
         
         
         self.player1 = Player(name: "Player 1", pokemons: Array(self.pokemons[0..<quarterPokemons]))
-        self.player2 = Player(name: "Player 2", pokemons: Array(self.pokemons[quarterPokemons..<self.pokemons.count / 2]))
+        self.player2 = Player(name: "Player 2", pokemons: Array(self.pokemons[quarterPokemons..<self.pokemons.count / 4]))
         
         self.firstTurn = true
     }
@@ -77,9 +77,31 @@ class GameManager {
         
     }
     
+    func newGame() {
+        self.pokemons.shuffle()
+        let quarterPokemons = self.pokemons.count / 8
+        
+        
+        self.player1 = Player(name: "Player 1", pokemons: Array(self.pokemons[0..<quarterPokemons]))
+        self.player2 = Player(name: "Player 2", pokemons: Array(self.pokemons[quarterPokemons..<self.pokemons.count / 4]))
+        
+        self.firstTurn = true
+    }
+    
     
     func checkingGameOver() -> Bool {
         return self.player1.pokemons.count == 0 || self.player2.pokemons.count == 0
+    }
+    
+    func checkingWinner() -> String {
+        if self.player1.pokemons.count == 0 {
+            self.player2.addPokemons(pokemons: pokemons)
+            return "\(self.self.player2.name) is the winner"
+        }
+        else {
+            self.player1.addPokemons(pokemons: pokemons)
+            return "\(self.player1.name) is the winner"
+        }
     }
     
 }

@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var image2: UIImageView!
     
+    @IBOutlet weak var pokemon1: UIImageView!
+    
+    @IBOutlet weak var pokemon2: UIImageView!
+    
     @IBOutlet weak var score_player1: UILabel!
     
     @IBOutlet weak var score_player2: UILabel!
@@ -52,33 +56,35 @@ class ViewController: UIViewController {
         pokemon2Name.text = ""
         winnerAnnouncer.text = ""
         
+        self.button.setTitle("Start Fighting", for: .normal)
+        
         changeScores()
         
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
     }
     
-    @objc func updateUI() {
-        
-    }
+//    @objc func updateUI() {
+//        
+//    }
     
     @objc func runningTimer() {
         if gameManager.checkingGameOver() {
             timer?.invalidate()
             timer = nil
-            checkingWinner()
+            finishGame()
         }
         else {
             next()
         }
-//        next()
     }
     
     func changeScores() -> Void {
-        score_player1.text = String(gameManager.player1.pokemons.count)
-        score_player2.text = String(gameManager.player2.pokemons.count)
+        score_player1.text = String(self.gameManager.player1.pokemons.count)
+        score_player2.text = String(self.gameManager.player2.pokemons.count)
     }
 
     @IBAction func buttonClick(_ sender: UIButton) {
+        self.gameManager.newGame()
         self.button.isHidden = true
         if self.firstTurn {
             timer?.invalidate()
@@ -109,8 +115,8 @@ class ViewController: UIViewController {
         let player1Pokemon = gameManager.player1.getPokemon()
         let player2Pokemon = gameManager.player2.getPokemon()
         
-        image1.image = UIImage(named: player1Pokemon.imageName)
-        image2.image = UIImage(named: player2Pokemon.imageName)
+        pokemon1.image = UIImage(named: player1Pokemon.imageName)
+        pokemon2.image = UIImage(named: player2Pokemon.imageName)
         pokemon1Name.text = player1Pokemon.imageName
         pokemon2Name.text = player2Pokemon.imageName
         
@@ -120,29 +126,31 @@ class ViewController: UIViewController {
         
     }
     
-    func checkingWinner() {
-        self.button.isHidden = true
-        hidingLabels()
-        if gameManager.player1.pokemons.count == 0 {
-            self.image1.isHidden = true
-            gameManager.player2.addPokemons(pokemons: pokemons)
-            winnerAnnouncer.text = "\(self.gameManager.player2.name) is the winner"
+    func finishGame() {
+        self.button.isHidden = false
+        self.button.setTitle("Fight Again", for: .normal)
+        hidingElements()
+        let message = self.gameManager.checkingWinner()
+        
+        if message.contains("1") {
+            self.pokemon2.isHidden = true
         }
         else {
-            self.image2.isHidden = true
-            gameManager.player1.addPokemons(pokemons: pokemons)
-            winnerAnnouncer.text = "\(self.gameManager.player1.name) is the winner"
+            self.pokemon1.isHidden = true
         }
-        changeScores()
+        
+        winnerAnnouncer.text = message
     }
     
-    func hidingLabels() {
-        label1.isHidden = true
-        label2.isHidden = true
-        score_player1.isHidden = true
-        score_player2.isHidden = true
-        pokemon1Name.isHidden = true
-        pokemon2Name.isHidden = true
+    func hidingElements() {
+        self.image1.isHidden = true
+        self.image2.isHidden = true
+        self.label1.isHidden = true
+        self.label2.isHidden = true
+        self.score_player1.isHidden = true
+        self.score_player2.isHidden = true
+        self.pokemon1Name.isHidden = true
+        self.pokemon2Name.isHidden = true
     }
     
 }
