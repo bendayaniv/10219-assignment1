@@ -7,12 +7,15 @@
 
 import UIKit
 
-class EndScreen: UIViewController {
+class EndScreenViewController: UIViewController {
     
 //    @IBOutlet weak var startGameButton: UIButton!
     
+    @IBOutlet weak var theWinner: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        theWinner.text = UserDefaults.standard.string(forKey: "Winner")
     }
     
 //    @IBAction func moveToGame(_ sender: Any) {

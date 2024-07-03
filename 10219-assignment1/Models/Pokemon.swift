@@ -24,7 +24,7 @@ class Pokemon {
         for atkType in attackerTypes {
             for defType in defenderTypes {
                 if let typeEffect = typeEffectiveness[atkType]?[defType] {
-                    effectiveness *= typeEffect
+                    effectiveness = effectiveness * typeEffect
                 }
             }
         }
