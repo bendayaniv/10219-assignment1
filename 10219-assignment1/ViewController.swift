@@ -94,15 +94,13 @@ class ViewController: UIViewController {
         }
     }
     
-    //todo - moving this to GameManager
     func next() {
-        
         if isBack == true {
             self.isBack = false
             
             let player1Pokemon = gameManager.player1.getPokemon()
             let player2Pokemon = gameManager.player2.getPokemon()
-            
+        
             self.cardsPlayer1.image = UIImage(named: player1Pokemon.imageName)
             self.cardsPlayer2.image = UIImage(named: player2Pokemon.imageName)
             
@@ -144,7 +142,6 @@ class ViewController: UIViewController {
             
             UIView.transition(with: self.cardsPlayer1, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
             UIView.transition(with: self.cardsPlayer2, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-            
         }
     }
     
@@ -154,15 +151,15 @@ class ViewController: UIViewController {
         hidingElements()
         let winner = self.gameManager.checkingWinner()
         
-        UserDefaults.standard.set(winner, forKey: "Winner")
+        if winner.contains("1") {
+            UserDefaults.standard.set(player1.text, forKey: "Winner")
+        }
+        else {
+            UserDefaults.standard.set(player2.text, forKey: "Winner")
+        }
         
-//        performSegue(withIdentifier: "EndScreen", sender: self)
-        if let endScreenVC = storyboard?.instantiateViewController(withIdentifier: "EndScreenVC") as? EndScreenViewController {
-                navigationController?.pushViewController(endScreenVC, animated: true)
-                // OR
-                // present(endScreenVC, animated: true, completion: nil)
-            }
-
+        let storyboard = self.storyboard?.instantiateViewController(withIdentifier: "EndScreenViewerController") as! EndScreenViewerController
+        self.navigationController?.pushViewController(storyboard, animated: true)
     }
     
     func hidingElements() {

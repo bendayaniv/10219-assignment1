@@ -73,10 +73,6 @@ class GameManager {
         self.firstTurn = true
     }
     
-    func next() {
-        
-    }
-    
     func newGame() {
         self.pokemons.shuffle()
         let quarterPokemons = self.pokemons.count / 8

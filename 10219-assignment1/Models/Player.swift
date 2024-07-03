@@ -9,7 +9,7 @@ import Foundation
 
 class Player {
     
-    let name: String
+    var name: String
     var pokemons: [Pokemon]
     
     init(name: String, pokemons: [Pokemon]) {

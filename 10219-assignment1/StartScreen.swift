@@ -32,8 +32,8 @@ class StartScreen: UIViewController {
         if userName != nil {
             existingUserName(userNameTextField: nil, userName: userName)
         }
-        
-        // Remove object
+
+        // Remove Object
 //        UserDefaults.standard.removeObject(forKey: "UserName")
         
     }
