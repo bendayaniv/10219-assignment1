@@ -53,8 +53,16 @@ class ViewController: UIViewController {
         pokeball1.image = UIImage(named: "pokeball-close")
         pokeball2.image = UIImage(named: "pokeball-close")
         
-        player1.text = "Player I"
-        player2.text = "Player II"
+        let direction = UserDefaults.standard.string(forKey: "Direction")
+        
+        if direction == "WEST" {
+            player1.text = UserDefaults.standard.string(forKey: "UserName")
+            player2.text = "CP"
+        }
+        else {
+            player1.text = "CP"
+            player2.text = UserDefaults.standard.string(forKey: "UserName")
+        }
         
         startGame.setTitle("Start Fight", for: .normal)
         

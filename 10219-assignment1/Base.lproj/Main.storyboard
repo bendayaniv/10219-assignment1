@@ -31,6 +31,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Enter Name"/>
+                                <connections>
+                                    <action selector="getName:" destination="IV3-5N-kcD" eventType="touchUpInside" id="LWb-ih-DLB"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth-west" translatesAutoresizingMaskIntoConstraints="NO" id="1Ms-3D-09n">
                                 <rect key="frame" x="16" y="207" width="174" height="342"/>
@@ -46,11 +49,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-rJ-jcS">
+                                <rect key="frame" x="156" y="194" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SaI-Mx-xgL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="JMn-Iu-8Wr"/>
+                    <connections>
+                        <outlet property="eastSide" destination="twD-Fi-j9L" id="asG-OQ-Wtr"/>
+                        <outlet property="getNameButton" destination="wDH-O0-Hpz" id="r0Y-wk-lyX"/>
+                        <outlet property="startGame" destination="juG-OR-ZAZ" id="j0t-o1-AYL"/>
+                        <outlet property="userNameLabel" destination="PKX-rJ-jcS" id="dL3-3D-sOv"/>
+                        <outlet property="userNameTextField" destination="DdH-24-DVB" id="2XL-bF-Ven"/>
+                        <outlet property="westSide" destination="1Ms-3D-09n" id="uyj-Au-Q5n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kx8-Pi-O2f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
