@@ -45,6 +45,10 @@
                                 <rect key="frame" x="32" y="287" width="132" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thp-e4-f0n">
+                                <rect key="frame" x="16" y="482" width="164" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gB-1Y-0g9">
                                 <rect key="frame" x="213" y="145" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -70,11 +74,15 @@
                                 <rect key="frame" x="229" y="287" width="132" height="187"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFF-Tk-L21">
+                                <rect key="frame" x="213" y="482" width="164" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Al2-Dm-19m">
                                 <rect key="frame" x="16" y="706" width="361" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Game"/>
                                 <connections>
                                     <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czu-ga-DiQ"/>
                                 </connections>
@@ -86,14 +94,15 @@
                                 <color key="textColor" name="main_text_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thp-e4-f0n">
-                                <rect key="frame" x="16" y="482" width="164" height="200"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBd-z4-r1R">
+                                <rect key="frame" x="159" y="771" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFF-Tk-L21">
-                                <rect key="frame" x="213" y="482" width="164" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="activate_animation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w9L-c2-onb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -105,17 +114,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="button" destination="Al2-Dm-19m" id="gWZ-mQ-t8H"/>
-                        <outlet property="image1" destination="0HJ-59-ZbP" id="FaK-mO-vT9"/>
-                        <outlet property="image2" destination="C7T-wF-Fgx" id="phr-HK-H0j"/>
-                        <outlet property="label1" destination="QSy-KE-AlO" id="10d-Qk-qp4"/>
-                        <outlet property="label2" destination="3gB-1Y-0g9" id="gS9-Ca-LC2"/>
+                        <outlet property="animtaion_button" destination="gBd-z4-r1R" id="OUH-Wj-qaF"/>
+                        <outlet property="player1" destination="QSy-KE-AlO" id="10d-Qk-qp4"/>
+                        <outlet property="player2" destination="3gB-1Y-0g9" id="gS9-Ca-LC2"/>
+                        <outlet property="pokeball1" destination="0HJ-59-ZbP" id="FaK-mO-vT9"/>
+                        <outlet property="pokeball2" destination="C7T-wF-Fgx" id="phr-HK-H0j"/>
                         <outlet property="pokemon1" destination="thp-e4-f0n" id="AIy-Bf-ddk"/>
                         <outlet property="pokemon1Name" destination="rVp-7s-q9n" id="UxL-5f-XYb"/>
                         <outlet property="pokemon2" destination="kFF-Tk-L21" id="P4Q-p7-CrT"/>
                         <outlet property="pokemon2Name" destination="8RV-fn-fAG" id="Crj-pQ-FUf"/>
                         <outlet property="score_player1" destination="5ty-fH-NiT" id="COA-Bv-oQL"/>
                         <outlet property="score_player2" destination="Nll-j3-Zw9" id="DRL-29-V66"/>
+                        <outlet property="startGame" destination="Al2-Dm-19m" id="gWZ-mQ-t8H"/>
                         <outlet property="winnerAnnouncer" destination="f1q-4T-Xyn" id="1NA-mO-bDm"/>
                     </connections>
                 </viewController>
@@ -127,7 +137,7 @@
     <resources>
         <image name="background" width="1400" height="700"/>
         <namedColor name="main_text_color">
-            <color red="0.28799999999999998" green="0.28799999999999998" blue="0.28799999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.28799998760223389" green="0.28799998760223389" blue="0.28799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

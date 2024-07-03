@@ -9,13 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var player1: UILabel!
     
-    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var player2: UILabel!
     
-    @IBOutlet weak var image1: UIImageView!
+    @IBOutlet weak var pokeball1: UIImageView!
     
-    @IBOutlet weak var image2: UIImageView!
+    @IBOutlet weak var pokeball2: UIImageView!
     
     @IBOutlet weak var pokemon1: UIImageView!
     
@@ -31,7 +31,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var winnerAnnouncer: UILabel!
     
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var startGame: UIButton!
+    
+    @IBOutlet weak var animtaion_button: UIButton!
     
     var gameManager = GameManager()
     
@@ -41,22 +43,26 @@ class ViewController: UIViewController {
     
     var timer: Timer?
     
+    var animationTimer: Timer?
+    
+    var isClose = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        image1.image = UIImage(named: "back")
-        image2.image = UIImage(named: "back")
+        pokeball1.image = UIImage(named: "pokeball-close")
+        pokeball2.image = UIImage(named: "pokeball-close")
         
-        label1.text = "Player I"
-        label2.text = "Player II"
+        player1.text = "Player I"
+        player2.text = "Player II"
         
-        button.setTitle("Start Fight", for: .normal)
+        startGame.setTitle("Start Fight", for: .normal)
         
         pokemon1Name.text = ""
         pokemon2Name.text = ""
         winnerAnnouncer.text = ""
         
-        self.button.setTitle("Start Fighting", for: .normal)
+        self.startGame.setTitle("Start Fighting", for: .normal)
         
         changeScores()
         
@@ -66,6 +72,55 @@ class ViewController: UIViewController {
 //    @objc func updateUI() {
 //        
 //    }
+    @IBAction func activate_animation(_ sender: Any) {
+        if isClose {
+            self.isClose = false
+            
+            var images = [UIImage]()
+            
+            guard let imageOpen = UIImage(named: "pokeball-open") else { return; }
+            guard let imageClose = UIImage(named: "pokeball-close") else { return; }
+            
+            images.append(imageClose)
+            images.append(imageOpen)
+            
+            self.pokeball1.animationImages = images
+            self.pokeball1.animationDuration = 1.0 // Adjust as needed
+            self.pokeball1.animationRepeatCount = 1
+            self.pokeball1.startAnimating()
+            
+            // Set a timer to stop the animation and set the final image
+            animationTimer?.invalidate() // Invalidate any existing timer
+            animationTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+                self?.pokeball1.stopAnimating()
+                self?.pokeball1.image = UIImage(named: "pokeball-open") // Set to the last frame
+            }
+        } else {
+            self.isClose = true
+            
+            var images = [UIImage]()
+            
+            guard let imageOpen = UIImage(named: "pokeball-open") else { return;  }
+            guard let imageClose = UIImage(named: "pokeball-close") else { return; }
+            
+            images.append(imageOpen)
+            images.append(imageClose)
+            
+            self.pokeball1.animationImages = images
+            self.pokeball1.animationDuration = 1.0 // Adjust as needed
+            self.pokeball1.animationRepeatCount = 1
+            self.pokeball1.startAnimating()
+            
+            // Set a timer to stop the animation and set the final image
+            animationTimer?.invalidate() // Invalidate any existing timer
+            animationTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
+                self?.pokeball1.stopAnimating()
+                self?.pokeball1.image = UIImage(named: "pokeball-close") // Set to the last frame
+            }
+        }
+    }
+
+    
     
     @objc func runningTimer() {
         if gameManager.checkingGameOver() {
@@ -85,7 +140,7 @@ class ViewController: UIViewController {
 
     @IBAction func buttonClick(_ sender: UIButton) {
         self.gameManager.newGame()
-        self.button.isHidden = true
+        self.startGame.isHidden = true
         if self.firstTurn {
             timer?.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
@@ -127,8 +182,8 @@ class ViewController: UIViewController {
     }
     
     func finishGame() {
-        self.button.isHidden = false
-        self.button.setTitle("Fight Again", for: .normal)
+        self.startGame.isHidden = false
+        self.startGame.setTitle("Fight Again", for: .normal)
         hidingElements()
         let message = self.gameManager.checkingWinner()
         
@@ -143,10 +198,10 @@ class ViewController: UIViewController {
     }
     
     func hidingElements() {
-        self.image1.isHidden = true
-        self.image2.isHidden = true
-        self.label1.isHidden = true
-        self.label2.isHidden = true
+        self.pokeball1.isHidden = true
+        self.pokeball2.isHidden = true
+        self.player1.isHidden = true
+        self.player2.isHidden = true
         self.score_player1.isHidden = true
         self.score_player2.isHidden = true
         self.pokemon1Name.isHidden = true
