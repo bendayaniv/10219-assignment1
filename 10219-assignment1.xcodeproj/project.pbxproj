@@ -17,6 +17,8 @@
 		7F2771E32C275B2500E86A05 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2771E22C275B2500E86A05 /* Constants.swift */; };
 		7F2771E52C275D0000E86A05 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2771E42C275D0000E86A05 /* GameManager.swift */; };
 		7F2771E72C275D5200E86A05 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2771E62C275D5200E86A05 /* Player.swift */; };
+		7F9931802C355ECE00BE01A1 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F99317F2C355ECE00BE01A1 /* StartScreen.swift */; };
+		7F9931822C35642900BE01A1 /* EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9931812C35642900BE01A1 /* EndScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		7F2771E22C275B2500E86A05 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F2771E42C275D0000E86A05 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		7F2771E62C275D5200E86A05 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7F99317F2C355ECE00BE01A1 /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
+		7F9931812C35642900BE01A1 /* EndScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				7F2771D22C27445100E86A05 /* Assets.xcassets */,
 				7F2771D42C27445100E86A05 /* LaunchScreen.storyboard */,
 				7F2771D72C27445100E86A05 /* Info.plist */,
+				7F99317F2C355ECE00BE01A1 /* StartScreen.swift */,
+				7F9931812C35642900BE01A1 /* EndScreen.swift */,
 			);
 			path = "10219-assignment1";
 			sourceTree = "<group>";
@@ -160,7 +166,9 @@
 			files = (
 				7F2771E12C275ACF00E86A05 /* Pokemon.swift in Sources */,
 				7F2771E52C275D0000E86A05 /* GameManager.swift in Sources */,
+				7F9931802C355ECE00BE01A1 /* StartScreen.swift in Sources */,
 				7F2771CE2C27444F00E86A05 /* ViewController.swift in Sources */,
+				7F9931822C35642900BE01A1 /* EndScreen.swift in Sources */,
 				7F2771CA2C27444F00E86A05 /* AppDelegate.swift in Sources */,
 				7F2771E72C275D5200E86A05 /* Player.swift in Sources */,
 				7F2771CC2C27444F00E86A05 /* SceneDelegate.swift in Sources */,
