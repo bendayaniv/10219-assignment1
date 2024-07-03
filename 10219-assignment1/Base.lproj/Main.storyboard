@@ -26,6 +26,26 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="EDt-BQ-d2N"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDH-O0-Hpz">
+                                <rect key="frame" x="140" y="151" width="114" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enter Name"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth-west" translatesAutoresizingMaskIntoConstraints="NO" id="1Ms-3D-09n">
+                                <rect key="frame" x="16" y="207" width="174" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth-east" translatesAutoresizingMaskIntoConstraints="NO" id="twD-Fi-j9L">
+                                <rect key="frame" x="203" y="207" width="174" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DdH-24-DVB">
+                                <rect key="frame" x="148" y="109" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SaI-Mx-xgL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kx8-Pi-O2f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1091" y="4"/>
+            <point key="canvasLocation" x="-1092.3664122137404" y="3.5211267605633805"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -200,6 +220,8 @@
     </scenes>
     <resources>
         <image name="background" width="1400" height="700"/>
+        <image name="earth-east" width="354" height="705"/>
+        <image name="earth-west" width="358" height="696"/>
         <namedColor name="main_text_color">
             <color red="0.28799998760223389" green="0.28799998760223389" blue="0.28799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
