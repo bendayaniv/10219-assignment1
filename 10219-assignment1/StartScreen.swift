@@ -10,15 +10,16 @@ import UIKit
 class StartScreen: UIViewController {
         
     @IBOutlet weak var userNameTextField: UITextField!
-    
+
     @IBOutlet weak var getNameButton: UIButton!
-    
+
     @IBOutlet weak var userNameLabel: UILabel!
-    
+
     @IBOutlet weak var startGame: UIButton!
-    
+
+
     @IBOutlet weak var westSide: UIImageView!
-    
+
     @IBOutlet weak var eastSide: UIImageView!
     
     override func viewDidLoad() {

@@ -8,7 +8,6 @@
 import UIKit
 
 class EndScreenViewerController: UIViewController {
-
     
     @IBOutlet weak var theWinner: UILabel!
     

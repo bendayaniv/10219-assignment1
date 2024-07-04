@@ -9,24 +9,33 @@ import UIKit
 
 class ViewController: UIViewController {
     
+//    @IBOutlet weak var player1: UILabel!
     @IBOutlet weak var player1: UILabel!
-    
+    //    
+//    @IBOutlet weak var player2: UILabel!
     @IBOutlet weak var player2: UILabel!
-    
+    //    
+//    @IBOutlet weak var cardsPlayer1: UIImageView!
     @IBOutlet weak var cardsPlayer1: UIImageView!
-    
+    //    
+//    @IBOutlet weak var cardsPlayer2: UIImageView!
     @IBOutlet weak var cardsPlayer2: UIImageView!
-    
+    //    
+//    @IBOutlet weak var score_player1: UILabel!
     @IBOutlet weak var score_player1: UILabel!
-    
+    //    
+//    @IBOutlet weak var score_player2: UILabel!
     @IBOutlet weak var score_player2: UILabel!
-        
+    //        
+//    @IBOutlet weak var pokemon1Name: UILabel!
     @IBOutlet weak var pokemon1Name: UILabel!
-    
+    //    
+//    @IBOutlet weak var pokemon2Name: UILabel!
     @IBOutlet weak var pokemon2Name: UILabel!
-        
+    //        
+//    @IBOutlet weak var startGame: UIButton!
     @IBOutlet weak var startGame: UIButton!
-        
+    
     var gameManager = GameManager()
     
     var pokemons = [Pokemon]()
@@ -84,7 +93,8 @@ class ViewController: UIViewController {
         score_player2.text = String(self.gameManager.player2.pokemons.count)
     }
 
-    @IBAction func buttonClick(_ sender: UIButton) {
+    
+    @IBAction func buttonClick(_ sender: Any) {
         self.gameManager.newGame()
 //        self.startGame.setTitle("Pause", for: .normal)
         self.startGame.isHidden = true
