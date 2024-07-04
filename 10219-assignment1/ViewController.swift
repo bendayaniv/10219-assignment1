@@ -86,8 +86,9 @@ class ViewController: UIViewController {
 
     @IBAction func buttonClick(_ sender: UIButton) {
         self.gameManager.newGame()
-        self.startGame.setTitle("Pause", for: .normal)
-        self.startGame.isHidden = false
+//        self.startGame.setTitle("Pause", for: .normal)
+        self.startGame.isHidden = true
+//        self.startGame.isHidden = false
         if self.firstTurn {
             timer?.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
@@ -129,6 +130,16 @@ class ViewController: UIViewController {
                     pokemons.removeAll()
                     changeScores()
                 }
+                else {
+                    if score_player1.text == "9" && score_player2.text == "1" {
+                        score_player1.text = "10"
+                        score_player2.text = "0"
+                    }
+                    else if score_player2.text == "9" && score_player1.text == "1" {
+                        score_player1.text = "0"
+                        score_player2.text = "10"
+                    }
+                }
             }
             else {
                 self.firstTurn = false
@@ -147,7 +158,7 @@ class ViewController: UIViewController {
     
     func finishGame() {
         self.startGame.isHidden = false
-        self.startGame.setTitle("Fight Again", for: .normal)
+//        self.startGame.setTitle("Fight Again", for: .normal)
         hidingElements()
         let winner = self.gameManager.checkingWinner()
         

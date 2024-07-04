@@ -17,11 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VOW-0M-epi">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juG-OR-ZAZ">
-                                <rect key="frame" x="141" y="725" width="111" height="35"/>
+                                <rect key="frame" x="134" y="725" width="126" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start Game"/>
+                                <buttonConfiguration key="configuration" style="plain" title="To The Game">
+                                    <color key="baseForegroundColor" name="main_text_color"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="EDt-BQ-d2N"/>
                                 </connections>
@@ -30,12 +36,14 @@
                                 <rect key="frame" x="140" y="151" width="114" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Enter Name"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Enter Name">
+                                    <color key="baseForegroundColor" name="main_text_color"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="getName:" destination="IV3-5N-kcD" eventType="touchUpInside" id="LWb-ih-DLB"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth-west" translatesAutoresizingMaskIntoConstraints="NO" id="1Ms-3D-09n">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image2vector" translatesAutoresizingMaskIntoConstraints="NO" id="1Ms-3D-09n">
                                 <rect key="frame" x="16" y="207" width="174" height="342"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -140,7 +148,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start Game"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Game">
+                                    <color key="baseForegroundColor" name="main_text_color"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="buttonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czu-ga-DiQ"/>
                                 </connections>
@@ -180,35 +190,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The winner is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-Ga-Ug6">
-                                <rect key="frame" x="16" y="122" width="361" height="104"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="u21-x8-52h">
+                                <rect key="frame" x="0.0" y="5" width="393" height="842"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="winner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-js-dzW">
-                                <rect key="frame" x="16" y="203" width="361" height="192"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="winner" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypr-Hj-Tbo">
+                                <rect key="frame" x="32" y="215" width="361" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="74"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="main_text_color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSp-i5-49h">
-                                <rect key="frame" x="130" y="700" width="132" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQh-5W-RpP">
+                                <rect key="frame" x="130" y="690" width="132" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Back To Menu"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back To Menu">
+                                    <color key="baseForegroundColor" name="main_text_color"/>
+                                </buttonConfiguration>
                                 <connections>
-                                    <segue destination="IV3-5N-kcD" kind="show" id="RL3-Ue-MJW"/>
+                                    <segue destination="IV3-5N-kcD" kind="show" id="WEv-1i-y8g"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The winner is:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snf-H8-MtM">
+                                <rect key="frame" x="16" y="129" width="361" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" name="main_text_color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UoZ-QY-lOM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="theWinner" destination="Baa-js-dzW" id="Guk-ho-IRZ"/>
+                        <outlet property="theWinner" destination="ypr-Hj-Tbo" id="7JY-lR-gIR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ro0-TC-zAh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -236,12 +252,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RL3-Ue-MJW"/>
+        <segue reference="WEv-1i-y8g"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="background" width="1400" height="700"/>
-        <image name="earth-east" width="354" height="705"/>
-        <image name="earth-west" width="358" height="696"/>
+        <image name="earth-east" width="400" height="796.61016845703125"/>
+        <image name="image2vector" width="400" height="777.65362548828125"/>
         <namedColor name="main_text_color">
             <color red="0.28799998760223389" green="0.28799998760223389" blue="0.28799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
