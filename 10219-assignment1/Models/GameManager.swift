@@ -17,7 +17,6 @@ class GameManager {
     
     init() {
         
-        
         self.pokemons = [
             Pokemon(strength: 10, types: ["Psychich"], imageName: "Abra"),
             Pokemon(strength: 35, types: ["Bug", "Poison"], imageName: "Beedril"),

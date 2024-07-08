@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class StartScreen: UIViewController {
+class StartScreen: UIViewController, CLLocationManagerDelegate {
         
     @IBOutlet weak var userNameTextField: UITextField!
 
@@ -17,10 +18,11 @@ class StartScreen: UIViewController {
 
     @IBOutlet weak var startGame: UIButton!
 
-
     @IBOutlet weak var westSide: UIImageView!
 
     @IBOutlet weak var eastSide: UIImageView!
+    
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +30,23 @@ class StartScreen: UIViewController {
         userNameLabel.isHidden = true
         startGame.isHidden = true
         
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
         let userName = UserDefaults.standard.string(forKey: "UserName")
         
         if userName != nil {
             existingUserName(userNameTextField: nil, userName: userName)
         }
-
-        // Remove Object
-//        UserDefaults.standard.removeObject(forKey: "UserName")
         
     }
     
     func existingUserName(userNameTextField: UITextField?, userName: String?) {
         
         var theName: String
+        
+        locationManager.requestLocation()
         
         if userNameTextField == nil || userNameTextField?.text?.isEmpty == true {
             theName = userName ?? ""
@@ -55,22 +60,33 @@ class StartScreen: UIViewController {
         userNameTextField?.isHidden = true
         getNameButton.isHidden = true
         UserDefaults.standard.set(theName, forKey: "UserName")
-        UserDefaults.standard.set("EAST", forKey: "Direction")
-        
-        let direction = UserDefaults.standard.string(forKey: "Direction")
-        
-        if direction == "WEST" {
-            eastSide.isHidden = true
-        }
-        else {
-            westSide.isHidden = true
-        }
     }
+    
     
     @IBAction func getName(_ sender: Any) {
         if ((userNameTextField.text?.isEmpty) == false) {
             existingUserName(userNameTextField: userNameTextField, userName: nil)
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let lat = location.coordinate.latitude
+            let lng = location.coordinate.longitude
+            print("\(lat) \(lng)")
+            
+            if lng > 34.817549168324334 {
+                UserDefaults.standard.set("EAST", forKey: "Direction")
+                westSide.isHidden = true
+            } else {
+                UserDefaults.standard.set("WEST", forKey: "Direction")
+                eastSide.isHidden = true
+            }
+        }
+    }
+    
+    func locationManager(_ manager:CLLocationManager, didFailWithError error: Error) {
+        print("Location Error: \(error)")
     }
     
 }

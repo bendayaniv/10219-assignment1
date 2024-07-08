@@ -21,22 +21,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="916"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDH-O0-Hpz">
-                                <rect key="frame" x="140" y="-283.66666666666669" width="114" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Enter Name">
-                                    <color key="baseForegroundColor" name="main_text_color"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="getName:" destination="IV3-5N-kcD" eventType="touchUpInside" id="LWb-ih-DLB"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="UserName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKX-rJ-jcS">
-                                <rect key="frame" x="156" y="-240.66666666666663" width="81" height="456.66666666666663"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5f-tY-8Cf">
                                 <rect key="frame" x="103" y="125" width="186" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,7 +34,17 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Get Name">
                                     <color key="baseForegroundColor" name="main_text_color"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="getName:" destination="IV3-5N-kcD" eventType="touchUpInside" id="ctG-Qh-luC"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-cs-8Bf">
+                                <rect key="frame" x="103" y="224" width="186" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="main_text_color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="earth-west" translatesAutoresizingMaskIntoConstraints="NO" id="0I3-lZ-ymg">
                                 <rect key="frame" x="16" y="282" width="178" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,27 +61,13 @@
                                     <color key="baseForegroundColor" name="main_text_color"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="getName:" destination="IV3-5N-kcD" eventType="touchUpInside" id="xSy-Kx-Qui"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="U6y-9A-p60"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-cs-8Bf">
-                                <rect key="frame" x="103" y="224" width="186" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="main_text_color"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SaI-Mx-xgL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wDH-O0-Hpz" firstAttribute="leading" secondItem="SaI-Mx-xgL" secondAttribute="leading" constant="140" id="EuW-Aq-ytT"/>
-                            <constraint firstItem="PKX-rJ-jcS" firstAttribute="top" secondItem="wDH-O0-Hpz" secondAttribute="bottom" constant="8" id="M5W-uu-g3o"/>
-                            <constraint firstItem="PKX-rJ-jcS" firstAttribute="top" secondItem="wDH-O0-Hpz" secondAttribute="bottom" constant="8" id="ceP-Fh-M2f"/>
-                            <constraint firstItem="SaI-Mx-xgL" firstAttribute="trailing" secondItem="PKX-rJ-jcS" secondAttribute="trailing" constant="156" id="jSi-em-OMt"/>
-                            <constraint firstItem="PKX-rJ-jcS" firstAttribute="leading" secondItem="SaI-Mx-xgL" secondAttribute="leading" constant="156" id="mNE-f0-5pi"/>
-                            <constraint firstItem="SaI-Mx-xgL" firstAttribute="trailing" secondItem="wDH-O0-Hpz" secondAttribute="trailing" constant="139" id="pNM-lK-EV7"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JMn-Iu-8Wr"/>
                     <connections>
