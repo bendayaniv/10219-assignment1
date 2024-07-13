@@ -87,9 +87,7 @@ class ViewController: UIViewController {
     
     @IBAction func buttonClick(_ sender: Any) {
         self.gameManager.newGame()
-//        self.startGame.setTitle("Pause", for: .normal)
         self.startGame.isHidden = true
-//        self.startGame.isHidden = false
         if self.firstTurn {
             timer?.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runningTimer), userInfo: nil, repeats: true)
@@ -159,7 +157,6 @@ class ViewController: UIViewController {
     
     func finishGame() {
         self.startGame.isHidden = false
-//        self.startGame.setTitle("Fight Again", for: .normal)
         hidingElements()
         let winner = self.gameManager.checkingWinner()
         

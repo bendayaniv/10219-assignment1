@@ -91,12 +91,10 @@ class GameManager {
     func checkingWinner() -> String {
         if self.player1.pokemons.count == 0 {
             self.player2.addPokemons(pokemons: pokemons)
-//            return "\(self.self.player2.name) is the winner"
             return self.player2.name
         }
         else {
             self.player1.addPokemons(pokemons: pokemons)
-//            return "\(self.player1.name) is the winner"
             return self.player1.name
         }
     }
